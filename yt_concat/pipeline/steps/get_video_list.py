@@ -5,12 +5,12 @@
 import urllib.request
 import json
 
-from yt_concat.steps.step import Step, StepException
+from pipeline.steps.step import Step, StepException
 from settings import API_KEY
 
 
 class GetVideoList(Step):
-    def process(self, inputs):
+    def process(self, data, inputs):
         channel_id = inputs['channel_id']
         base_video_url = 'https://www.youtube.com/watch?v='
         base_search_url = 'https://www.googleapis.com/youtube/v3/search?'  # API endpoint 讓我們使用API的網址
@@ -33,5 +33,6 @@ class GetVideoList(Step):
                 url = first_url + '&pageToken={}'.format(next_page_token)
             except KeyError:
                 break
+        print(video_links)
         return video_links
 

@@ -8,7 +8,7 @@ class Step(ABC):
 
 
     @abstractclassmethod
-    def process(self, inputs):
+    def process(self, data, inputs):
         pass
 
 class StepException(Exception):

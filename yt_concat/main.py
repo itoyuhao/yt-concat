@@ -1,17 +1,26 @@
-from yt_concat.steps.get_video_list import GetVideoList
-from yt_concat.steps.step import StepException
+from pipeline.steps.get_video_list import GetVideoList
+from pipeline.steps.step import StepException
 
+from pipeline.pipeline import Pipeline
 
 CHANNEL_ID = 'UCKSVUHI9rbbkXhvAXK-2uxA'
 
-steps = [
-    GetVideoList(),
-    
-]
 
-for step in steps:
-    try:
-        step.process()
-    except StepException as e:
-        print('Exception happened: ', e)
-        break
+
+def main():
+
+    inputs = {'channel_id': CHANNEL_ID
+    }
+
+    steps = [
+        GetVideoList(),
+    ]
+
+    
+    p = Pipeline(steps)
+    p.run(inputs)
+
+
+# 檢查是否為程式進入點
+if __name__ == '__main__':
+    main()
