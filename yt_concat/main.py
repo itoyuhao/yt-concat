@@ -3,7 +3,7 @@ from pipeline.steps.step import StepException
 
 from pipeline.pipeline import Pipeline
 
-CHANNEL_ID = 'UCKSVUHI9rbbkXhvAXK-2uxA'
+CHANNEL_ID = 'UC8wZnXYK_CGKlBcZp-GxYPA'
 
 
 
