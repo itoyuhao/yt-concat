@@ -5,12 +5,12 @@ class Pipeline:
     def __init__(self, steps):
         self.steps = steps
 
-    def run(self, inputs):
+    def run(self, inputs, utils):
         data = None
         for step in self.steps:
             try:
                 # 這邊要建立一個傳遞的動作
-                data = step.process(data, inputs)
+                data = step.process(data, inputs, utils)
             except StepException as e:
                 print('Exception happened: ', e)
                 break
