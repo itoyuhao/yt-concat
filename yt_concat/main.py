@@ -1,6 +1,7 @@
+from pipeline.steps.preflight import Preflight
 from pipeline.steps.get_video_list import GetVideoList
 from pipeline.steps.download_captions import DownloadCaptions
-from pipeline.steps.preflight import Preflight
+from pipeline.steps.read_caption import ReadCaption
 from pipeline.steps.postflight import Postflight
 from pipeline.steps.step import StepException
 from pipeline.pipeline import Pipeline
@@ -20,6 +21,7 @@ def main():
         GetVideoList(),
         DownloadCaptions(),
         Postflight(),
+        ReadCaption(),
 
     ]
 
