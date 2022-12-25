@@ -1,7 +1,10 @@
 from pipeline.steps.preflight import Preflight
 from pipeline.steps.get_video_list import GetVideoList
+from pipeline.steps.initalize_yt import InitializeYT
 from pipeline.steps.download_captions import DownloadCaptions
 from pipeline.steps.read_caption import ReadCaption
+from pipeline.steps.search import Search
+from pipeline.steps.download_videos import DownloadVideos
 from pipeline.steps.postflight import Postflight
 from pipeline.steps.step import StepException
 from pipeline.pipeline import Pipeline
@@ -13,15 +16,21 @@ CHANNEL_ID = 'UCKSVUHI9rbbkXhvAXK-2uxA'
 
 def main():
 
-    inputs = {'channel_id': CHANNEL_ID
+    inputs = {
+        'channel_id': CHANNEL_ID,
+        'search_word': 'incredible',
     }
 
     steps = [
         Preflight(),
         GetVideoList(),
+        InitializeYT(),
         DownloadCaptions(),
-        Postflight(),
         ReadCaption(),
+        Search(),
+        DownloadVideos(),
+        Postflight(),
+        
 
     ]
 
