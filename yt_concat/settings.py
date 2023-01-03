@@ -9,7 +9,7 @@ API_KEY = os.getenv('API_KEY')
 DOWNLOADS_DIR = 'downloads'
 VIDEOS_DIR = os.path.join(DOWNLOADS_DIR, 'videos')
 CAPTIONS_DIR = os.path.join(DOWNLOADS_DIR, 'captions')
-
+OUTPUTS_DIR = 'outputs'
 
 ####
 ## https://github.com/pytube/pytube/issues/1085

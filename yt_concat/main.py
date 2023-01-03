@@ -5,6 +5,7 @@ from pipeline.steps.download_captions import DownloadCaptions
 from pipeline.steps.read_caption import ReadCaption
 from pipeline.steps.search import Search
 from pipeline.steps.download_videos import DownloadVideos
+from pipeline.steps.edit_video import EditVideo
 from pipeline.steps.postflight import Postflight
 from pipeline.steps.step import StepException
 from pipeline.pipeline import Pipeline
@@ -19,6 +20,7 @@ def main():
     inputs = {
         'channel_id': CHANNEL_ID,
         'search_word': 'incredible',
+        'limit': 20, 
     }
 
     steps = [
@@ -29,6 +31,7 @@ def main():
         ReadCaption(),
         Search(),
         DownloadVideos(),
+        EditVideo(),
         Postflight(),
         
 
